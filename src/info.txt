@@ -1,0 +1,28 @@
+Color Palette: 
+
+#070619
+#2d293c
+#574962
+#856c89
+#b791b0
+#edb7d6
+
+or
+
+#070619
+#7689f3
+#f9f8ff
+#f1f1e6
+
+or
+
+#070619
+#454555
+#aaaabc
+#271f08
+#554b34
+
+
+fonts: 
+instrument serif 
+outfit

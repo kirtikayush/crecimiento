@@ -1,0 +1,277 @@
+/* ===============================
+   BASE SETUP
+================================== */
+
+/* ===============================
+   MENUBAR BASE
+================================== */
+
+.menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 0px solid transparent;
+  transition: all 0.3s ease;
+  z-index: 10;
+
+  /* background-color: red; */
+}
+
+.menubar.shrink {
+  top: 10px;
+  left: 25%;
+  right: 25%;
+  /* height: 54px; */
+  padding: 0px 36px;
+  border-radius: 50px;
+  transform: scale(0.95);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  opacity: 0.95;
+}
+
+/* ===============================
+   LOGO
+================================== */
+
+.menubar-logo {
+  font-family: "Menante", sans-serif;
+  font-size: 40px;
+  transition: all 0.3s ease;
+}
+
+.menubar.shrink .menubar-logo {
+  font-size: 22px;
+  letter-spacing: 0px;
+  /* background-color: red; */
+}
+
+/* ===============================
+   BUTTONS
+================================== */
+
+.menubar-buttons {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  /* background-color: green; */
+  transition: all 0.3s ease;
+}
+
+.menubar.shrink .menubar-buttons {
+  gap: 16px;
+  padding: 4px 0 0 0;
+  /* background-color: blue; */
+}
+
+.menubar-inner {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.menubar-inner:hover {
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+
+/* ===============================
+   HAMBURGER ICON
+================================== */
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  z-index: 200;
+  /* background-color: red; */
+  transition: transform 0.3s ease;
+  /* color: white; */
+  /* padding-top: 20px; */
+}
+
+.hamburger:hover {
+  transform: scale(1.1);
+}
+
+/* ===============================
+   SIDE MENU
+================================== */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  width: 70%;
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+  transition: right 0.4s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.mobile-menu.show {
+  right: 0;
+}
+
+.mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  text-align: center;
+  /* color: white; */
+}
+
+.mobile-menu-inner div {
+  font-weight: 500;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-inner div:hover {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   MOBILE CLOSE BUTTON
+================================== */
+
+.mobile-close-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 20px;
+  /* color: white; */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-close-btn:hover {
+  background: rgba(255, 0, 0, 0.8);
+  transform: scale(1.05);
+}
+
+/* ===============================
+   RESPONSIVE
+================================== */
+@media (max-width: 2000px) {
+  .menubar {
+    /* background-color: yellow; */
+    align-items: end;
+  }
+  .menubar-buttons {
+    /* height: 100%; */
+    /* background-color: red; */
+    margin-bottom: 8px;
+  }
+
+  .menubar.shrink {
+    align-items: center;
+  }
+
+  .menubar.shrink .menubar-buttons {
+    margin-top: 10px;
+  }
+
+  /* .menubar-inner {
+    
+    top: 16px;
+  } */
+}
+
+@media (max-width: 1200px) {
+  .menubar {
+    left: 16px;
+    right: 16px;
+    /* height: 56px; */
+    padding: 8px 16px;
+    /* align-items: flex-end; */
+    align-items: center;
+  }
+
+  .menubar-buttons {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    margin-top: 12px;
+    /* background-color: red; */
+    /* padding-top: 0px; */
+    /* display: flex; */
+  }
+
+  .menubar.shrink {
+    top: 8px;
+    left: 10%;
+    right: 10%;
+    /* padding: 20px 30px; */
+  }
+
+  .menubar.shrink .hamburger {
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .menubar {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    align-items: center;
+  }
+  .mobile-menu {
+    width: 80%;
+  }
+  .menubar.shrink {
+    top: 16px;
+    left: 8px;
+    right: 8px;
+  }
+
+  .menubar-logo {
+    font-size: 36px;
+  }
+
+  .hamburger {
+    /* background-color: red; */
+    margin-top: 10px;
+    /* padding-top: 10px; */
+    /* margin-top: 0px; */
+  }
+
+  .menubar.shrink .menubar-logo {
+    /* background-color: red; */
+    /* font-size: 20px; */
+    /* font-size: 1px; */
+    /* letter-spacing: 10px; */
+
+    font-size: 24px;
+  }
+
+  .menubar.shrink .hamburger {
+    padding-top: 0px;
+  }
+}
