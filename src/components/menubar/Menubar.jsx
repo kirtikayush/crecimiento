@@ -1,8 +1,8 @@
 // Menubar.jsx
 import React, { useState, useEffect } from "react";
-import { List } from "./animate-ui/icons/list";
-import { AnimateIcon } from "./animate-ui/icons/icon";
-import { X } from "./animate-ui/icons/x";
+import { List } from "../animate-ui/icons/list";
+import { AnimateIcon } from "../animate-ui/icons/icon";
+import { X } from "../animate-ui/icons/x";
 import "./Menubar.css";
 
 const Menubar = () => {

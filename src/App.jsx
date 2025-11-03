@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-import Menubar from "./components/Menubar";
+import Menubar from "./components/menubar/Menubar";
+import Intro from "./components/intro/Intro";
 
 const App = () => {
   return (
@@ -9,7 +10,9 @@ const App = () => {
       <div className="app-main"></div>
       <Menubar></Menubar>
       {/* Scrollable content */}
-      <div className="content"></div>
+      <div className="content">
+        <Intro />
+      </div>
     </>
   );
 };
