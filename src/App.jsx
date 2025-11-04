@@ -12,7 +12,6 @@ const App = () => {
       {/* Scrollable content */}
       <div className="content">
         {/* <About /> */}
-
         <IntroB />
       </div>
     </>
