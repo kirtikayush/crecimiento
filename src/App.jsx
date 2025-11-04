@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import Menubar from "./components/menubar/Menubar";
-import Intro from "./components/intro/Intro";
-
+import About from "./components/about/About";
+import IntroB from "./components/intro/IntroB";
 const App = () => {
   return (
     <>
@@ -11,7 +11,9 @@ const App = () => {
       <Menubar></Menubar>
       {/* Scrollable content */}
       <div className="content">
-        <Intro />
+        {/* <About /> */}
+
+        <IntroB />
       </div>
     </>
   );
