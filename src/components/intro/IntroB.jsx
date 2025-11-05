@@ -6,10 +6,10 @@ import IntroImg3 from "../../assets/images/intro/introImage3.png";
 import { Parallax } from "react-scroll-parallax";
 
 const IntroB = () => {
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1200);
+  const [isWideEnough, setIsWideEnough] = useState(window.innerWidth > 600);
 
   useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth > 1200);
+    const handleResize = () => setIsWideEnough(window.innerWidth > 600);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -37,13 +37,21 @@ const IntroB = () => {
     //   )}
     // </div>
     <div className="intro-container">
-      <Parallax speed={-20} className="intro-parallax">
+      {isWideEnough ? (
+        <Parallax speed={-20} className="intro-parallax">
+          <img
+            src={IntroImg3}
+            alt="Crecimiento Consulting"
+            className="intro-background"
+          />
+        </Parallax>
+      ) : (
         <img
           src={IntroImg3}
           alt="Crecimiento Consulting"
           className="intro-background"
         />
-      </Parallax>
+      )}
       <div className="intro-main">
         <h1>Crecimiento Consulting Services</h1>
         <p>
