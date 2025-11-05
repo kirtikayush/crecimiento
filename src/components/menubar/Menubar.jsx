@@ -1,5 +1,4 @@
-// Menubar.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { List } from "../animate-ui/icons/list";
 import { AnimateIcon } from "../animate-ui/icons/icon";
 import { X } from "../animate-ui/icons/x";
@@ -9,78 +8,93 @@ const Menubar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // 🧩 Reusable menu list — edit here anytime
+  const menuItems = [
+    { name: "About", target: "about" },
+    { name: "Services", target: "services" },
+    { name: "Contact", target: "footer" },
+  ];
+
   // Shrink navbar when scrolling
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when clicking outside
+  // Close menu when clicking outside
   useEffect(() => {
-    let timeout;
-    let handleClickOutside;
-
-    if (menuOpen) {
-      timeout = setTimeout(() => {
-        handleClickOutside = (event) => {
-          if (
-            !event.target.closest(".mobile-menu-inner") &&
-            !event.target.closest(".hamburger")
-          ) {
-            setMenuOpen(false);
-          }
-        };
-        document.addEventListener("click", handleClickOutside);
-      }, 150);
-    }
-
+    if (!menuOpen) return;
+    const handleClickOutside = (e) => {
+      if (
+        !e.target.closest(".mobile-menu-inner") &&
+        !e.target.closest(".hamburger")
+      ) {
+        setMenuOpen(false);
+      }
+    };
+    const timeout = setTimeout(
+      () => document.addEventListener("click", handleClickOutside),
+      150
+    );
     return () => {
       clearTimeout(timeout);
-      if (handleClickOutside) {
-        document.removeEventListener("click", handleClickOutside);
-      }
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [menuOpen]);
 
+  // Smooth scroll helper
+  const scrollToSection = useCallback((id) => {
+    const section = document.getElementById(id);
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
+  }, []);
+
   return (
     <>
-      <div className={`menubar ${isScrolled ? "shrink" : ""}`}>
+      {/* === Navbar === */}
+      <nav className={`menubar ${isScrolled ? "shrink" : ""}`}>
         <div className="menubar-logo">Crecimiento</div>
 
         {/* Desktop menu */}
         <div className="menubar-buttons">
-          <div className="menubar-inner">About</div>
-          <div className="menubar-inner">Service</div>
-          <div className="menubar-inner">Contact</div>
+          {menuItems.map((item) => (
+            <div
+              key={item.target}
+              onClick={() => scrollToSection(item.target)}
+              className="menubar-inner"
+            >
+              {item.name}
+            </div>
+          ))}
         </div>
 
-        {/* Hamburger icon with animation */}
+        {/* Hamburger */}
         <div className="hamburger">
           <AnimateIcon
             onClick={() => setMenuOpen((prev) => !prev)}
-            // loopDelay={1000}
-            completeOnStop
             animateOnTap
+            completeOnStop
           >
-            <List />
+            {menuOpen ? <X /> : <List />}
           </AnimateIcon>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile slide‑out menu */}
+      {/* === Mobile Menu === */}
       <div className={`mobile-menu ${menuOpen ? "show" : ""}`}>
         <div className="mobile-menu-inner">
-          <div onClick={() => setMenuOpen(false)}>About</div>
-          <div onClick={() => setMenuOpen(false)}>Service</div>
-          <div onClick={() => setMenuOpen(false)}>Contact</div>
-          <AnimateIcon
-            onClick={() => setMenuOpen(false)}
-            // completeOnStop
-            animateOnHover
-          >
+          {menuItems.map((item) => (
+            <div
+              key={item.target}
+              onClick={() => scrollToSection(item.target)}
+              className="mobile-menu-item"
+            >
+              {item.name}
+            </div>
+          ))}
+
+          <AnimateIcon onClick={() => setMenuOpen(false)} animateOnHover>
             <div className="mobile-close-btn">
               <X />
             </div>

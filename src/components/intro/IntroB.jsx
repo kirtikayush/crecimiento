@@ -14,6 +14,13 @@ const IntroB = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     // <div className="intro-container">
     //   <div className="intro-main">
@@ -58,10 +65,10 @@ const IntroB = () => {
           Strategic consulting partner dedicated to transforming your business.
         </p>
         <div className="intro-buttons">
-          <button>
+          <button onClick={() => scrollToSection("about")}>
             <span>Get Started</span>
           </button>
-          <button>
+          <button onClick={() => scrollToSection("footer")}>
             <span>Contact Us</span>
           </button>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import "./About.css";
 import { FaBullseye, FaLightbulb, FaBalanceScale } from "react-icons/fa";
 
-const About = () => {
+const About = ({ id }) => {
   const cards = [
     {
       title: "Strategic Focus",
@@ -22,7 +22,7 @@ const About = () => {
   ];
 
   return (
-    <div className="about-container">
+    <about id={id} className="about-container">
       <h1>Who We Are?</h1>
 
       <div className="about-content">
@@ -51,7 +51,7 @@ const About = () => {
           </div>
         ))}
       </div>
-    </div>
+    </about>
   );
 };
 

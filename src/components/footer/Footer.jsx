@@ -2,10 +2,10 @@ import React from "react";
 import "./Footer.css";
 import { FaEnvelope } from "react-icons/fa";
 
-const Footer = () => {
+const Footer = ({ id }) => {
   const email = "mailto:principalismranchi@gmail.com";
   return (
-    <div className="footer-container">
+    <footer id={id} className="footer-container">
       <div className="footer-main">
         Crecimiento Consulting Services Private Limited
         <div className="footer-contact">
@@ -16,7 +16,7 @@ const Footer = () => {
           <p></p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

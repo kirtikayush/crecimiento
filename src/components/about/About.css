@@ -8,13 +8,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 3.4rem;
+
   letter-spacing: 0px;
   font-weight: 600;
 }
 
 .about-container h1 {
   font-weight: 300;
+  font-size: 3.4rem;
 }
 
 .about-content {
@@ -49,7 +50,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 80px;
-  margin-bottom: 24px;
+  margin-bottom: 80px;
   border-top: 1px solid rgba(87, 87, 87, 0.2);
   border-bottom: 1px solid rgba(87, 87, 87, 0.2);
 }

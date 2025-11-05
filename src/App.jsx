@@ -4,6 +4,7 @@ import Menubar from "./components/menubar/Menubar";
 import About from "./components/about/About";
 import IntroB from "./components/intro/IntroB";
 import Footer from "./components/footer/Footer";
+import Services from "./components/services/Services";
 const App = () => {
   return (
     <>
@@ -13,8 +14,12 @@ const App = () => {
       {/* Scrollable content */}
       <div className="content">
         <IntroB />
-        <About />
-        <Footer />
+        {/* <section id="about">
+          <About />
+        </section> */}
+        <About id="about" />
+        <Services id="services" />
+        <Footer id="footer" />
       </div>
     </>
   );
