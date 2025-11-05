@@ -49,9 +49,14 @@ const IntroB = () => {
         <p>
           Strategic consulting partner dedicated to transforming your business.
         </p>
-        <button>
-          <span>Get Started</span>
-        </button>
+        <div className="intro-buttons">
+          <button>
+            <span>Get Started</span>
+          </button>
+          <button>
+            <span>Contact Us</span>
+          </button>
+        </div>
       </div>
     </div>
   );

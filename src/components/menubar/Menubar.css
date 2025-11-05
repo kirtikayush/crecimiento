@@ -12,12 +12,14 @@
   left: 0;
   right: 0;
   height: 80px;
+  background-color: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: white;
+  /* backdrop-filter: blur(12px); */
+  /* -webkit-backdrop-filter: blur(12px); */
   border: 0px solid transparent;
   transition: all 0.3s ease;
   z-index: 10;
@@ -33,7 +35,7 @@
   padding: 0px 36px;
   border-radius: 50px;
   transform: scale(0.95);
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(153, 153, 153, 0.24);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -69,7 +71,7 @@
 }
 
 .menubar.shrink .menubar-buttons {
-  gap: 16px;
+  gap: 24px;
   padding: 4px 0 0 0;
   /* background-color: blue; */
 }
@@ -84,7 +86,7 @@
 }
 
 .menubar-inner:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   transform: scale(1.1);
 }
 
@@ -203,8 +205,8 @@
 
 @media (max-width: 1200px) {
   .menubar {
-    left: 16px;
-    right: 16px;
+    /* left: 16px; */
+    /* right: 16px; */
     /* height: 56px; */
     padding: 8px 16px;
     /* align-items: flex-end; */

@@ -11,8 +11,8 @@ const App = () => {
       <Menubar></Menubar>
       {/* Scrollable content */}
       <div className="content">
-        {/* <About /> */}
         <IntroB />
+        <About />
       </div>
     </>
   );
