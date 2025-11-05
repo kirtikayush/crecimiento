@@ -49,6 +49,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 80px;
+  margin-bottom: 24px;
   border-top: 1px solid rgba(87, 87, 87, 0.2);
   border-bottom: 1px solid rgba(87, 87, 87, 0.2);
 }
